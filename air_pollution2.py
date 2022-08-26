@@ -265,24 +265,24 @@ ozone = list(c["OZONE"].values)
 ozone_20 = []
 for i in ozone:
     if i <= 50:
-        ozone_19.append(i * (50 / 50))
+        ozone_20.append(i * (50 / 50))
     elif (i > 50 and i <= 100):
         e = (50 / 50)
-        ozone_19.append(50 + ((i - 50) * e))
+        ozone_20.append(50 + ((i - 50) * e))
     elif (i > 100 and i <= 168):
         e = (100 / 68)
-        ozone_19.append(100 + ((i - 100) * e))
+        ozone_20.append(100 + ((i - 100) * e))
     elif (i > 168 and i <= 208):
         e = (100 / 40)
-        ozone_19.append(200 + ((i - 168) * e))
+        ozone_20.append(200 + ((i - 168) * e))
     elif (i > 208 and i <= 748):
         e = (100 / 539)
-        ozone_19.append(300 + ((i - 208) * e))
+        ozone_20.append(300 + ((i - 208) * e))
     elif (i > 748):
         e = (100 / 539)
-        ozone_19.append(400 + ((i - 748) * e))
+        ozone_20.append(400 + ((i - 748) * e))
 
-print(ozone_19)
+print(ozone_20)
 
 date = c.index.values
 print(date)
