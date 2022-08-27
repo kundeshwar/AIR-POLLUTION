@@ -260,9 +260,9 @@ for i in co:
 
 print(co_20)
 
-print(co_19)
 ozone = list(c["OZONE"].values)
 ozone_20 = []
+
 for i in ozone:
     if i <= 50:
         ozone_20.append(i * (50 / 50))
@@ -324,11 +324,59 @@ mp.title("CONCENTRATION OF CO", fontsize=15)
 mp.scatter(np.array(co_19), date, label="CO(2019)")
 mp.scatter(np.array(co_20), date, label="CO(2020)")
 
-mp.subplot(2, 3, 6)
 mp.xlabel("VALUES", fontsize=15)
 mp.ylabel("DATES", fontsize=15)
+mp.subplot(2, 3, 6)
 mp.title("CONCENTRATION OF ozone", fontsize=15)
-mp.scatter(np.array(ozone_19), date, label="OZONE(2019)")
+mp.scatter(np.array(ozone_20), date, label="OZONE(2019)")
 mp.scatter(np.array(ozone_20), date, label="OZONE(2020)")
 
 mp.show()
+
+# for 2019 data
+pm25 = {"PM2.5 after using formula": pm25_19}
+f1 = pd.DataFrame(pm25)
+
+pm10 = {"PM10 after using formula": pm10_19}
+f2 = pd.DataFrame(pm10)
+
+no2 = {"NO2 after using formula": no2_19}
+f3 = pd.DataFrame(no2)
+
+so2 = {"SO2 after using formula": so2_19}
+f4 = pd.DataFrame(so2)
+
+co = {"CO after using formula": co_19}
+f5 = pd.DataFrame(co)
+
+date1 = {"date": list(date)}
+
+f = pd.DataFrame(date1)
+u = pd.concat([f, f1, f2, f3, f4, f5], axis=1)
+
+u.to_csv("air_pollution12.csv")
+
+# for 2020 data
+
+pm25 = {"PM2.5 after using formula": pm25_20}
+f1 = pd.DataFrame(pm25)
+
+pm10 = {"PM10 after using formula": pm10_20}
+f2 = pd.DataFrame(pm10)
+
+no2 = {"NO2 after using formula": no2_20}
+f3 = pd.DataFrame(no2)
+
+so2 = {"SO2 after using formula": so2_20}
+f4 = pd.DataFrame(so2)
+
+co = {"CO after using formula": co_20}
+f5 = pd.DataFrame(co)
+
+date1 = {"date for 2020": list(date)}
+
+f = pd.DataFrame(date1)
+u = pd.concat([f, f1, f2, f3, f4, f5], axis=1)
+
+u.to_csv("air_pollution13.csv")
+
