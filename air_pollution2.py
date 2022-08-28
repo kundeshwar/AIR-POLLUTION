@@ -259,7 +259,6 @@ for i in co:
         co_20.append(400 + ((i - 34) * e))
 
 print(co_20)
-
 ozone = list(c["OZONE"].values)
 ozone_20 = []
 
@@ -284,9 +283,13 @@ for i in ozone:
 
 print(ozone_20)
 
-date = c.index.values
-print(date)
 import numpy as np
+
+l = ["01-31", "02-29", "03-31", "04-30", "05-31", "06-30", "07-31", "08-31", "09-30", "10-31", "11-30", "12-31"]
+date = np.array(l)
+print(date)
+
+import seaborn as sb
 import matplotlib.pyplot as mp
 
 mp.subplot(2, 3, 1)
@@ -309,8 +312,8 @@ mp.subplot(2, 3, 3)
 mp.xlabel("VALUES", fontsize=15)
 mp.ylabel("DATES", fontsize=15)
 mp.title("CONCENTRATION OF SO2", fontsize=15)
-mp.scatter(np.array(so2_19), date, label="so2(2019)")
-mp.scatter(np.array(so2_20), date, label="so2(2020)")
+sb.scatterplot(np.array(so2_19), date, label="so2(2019)")
+sb.scatterplot(np.array(so2_20), date, label="so2(2020)")
 mp.legend(["SO2(2019)", "SO2(2020)"])
 
 mp.subplot(2, 3, 4)
@@ -338,7 +341,7 @@ mp.scatter(np.array(ozone_20), date, label="OZONE(2020)")
 mp.legend(["OZONE(2019)", "OZONE(2020)"])
 
 mp.show()
-
+date2 = c.index.values
 # for 2019 data
 pm25 = {"PM2.5 after using formula": pm25_19}
 f1 = pd.DataFrame(pm25)
@@ -355,14 +358,18 @@ f4 = pd.DataFrame(so2)
 co = {"CO after using formula": co_19}
 f5 = pd.DataFrame(co)
 
-date1 = {"date": list(date)}
+ozone = {"CO after using formula": ozone_19}
+f6 = pd.DataFrame(ozone)
+
+date1 = {"date": list(date2)}
 
 f = pd.DataFrame(date1)
-u = pd.concat([f, f1, f2, f3, f4, f5], axis=1)
+u = pd.concat([f, f1, f2, f3, f4, f5, f6], axis=1)
 
 u.to_csv("air_pollution12.csv")
 
 # for 2020 data
+date3 = b.index.values
 
 pm25 = {"PM2.5 after using formula": pm25_20}
 f1 = pd.DataFrame(pm25)
@@ -379,10 +386,13 @@ f4 = pd.DataFrame(so2)
 co = {"CO after using formula": co_20}
 f5 = pd.DataFrame(co)
 
-date1 = {"date for 2020": list(date)}
+ozone = {"CO after using formula": ozone_20}
+f6 = pd.DataFrame(f6)
+
+date1 = {"date for 2020": list(date3)}
 
 f = pd.DataFrame(date1)
-u = pd.concat([f, f1, f2, f3, f4, f5], axis=1)
+u = pd.concat([f, f1, f2, f3, f4, f5, f6], axis=1)
 
 u.to_csv("air_pollution13.csv")
 
