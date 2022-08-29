@@ -341,6 +341,12 @@ mp.scatter(np.array(ozone_20), date, label="OZONE(2020)")
 mp.legend(["OZONE(2019)", "OZONE(2020)"])
 
 mp.show()
+sb.pairplot(c)
+mp.show()
+
+sb.pairplot(b)
+mp.show()
+
 date2 = c.index.values
 # for 2019 data
 pm25 = {"PM2.5 after using formula": pm25_19}
